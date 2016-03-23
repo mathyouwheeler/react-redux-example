@@ -4,7 +4,7 @@ import style from './css/Counter.css'
 export default class Counter extends Component {
 
   render () {
-    const count = this.props.counter
+    const count = this.props.count
 
     return (
       <div className={style.counter}>
@@ -19,6 +19,6 @@ export default class Counter extends Component {
 }
 
 Counter.propTypes = {
-  counter: PropTypes.number.isRequired,
+  count: PropTypes.number.isRequired,
   increment: PropTypes.func.isRequired
 }
