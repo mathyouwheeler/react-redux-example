@@ -1,25 +1,9 @@
-import React, {Component} from 'react'
-import moment from 'moment'
+import React, {Component, PropTypes} from 'react'
 import Color from '../components/Color'
 import ColorHistory from '../components/ColorHistory'
 import style from './css/Home.css'
 
 export default class DashboardColor extends Component {
-  constructor () {
-    super()
-    this.setColor = this.setColor.bind(this)
-    this.state = {
-      color: '#000',
-      colorEntries: []
-    }
-  }
-
-  setColor (newColor) {
-    this.setState({
-      color: newColor.hex,
-      colorEntries: [ ...this.state.colorEntries, { timeStamp: moment(), color: newColor.hex } ]
-    })
-  }
 
   render () {
     return (
@@ -28,10 +12,16 @@ export default class DashboardColor extends Component {
           <h1>
             <p>Color Dashboard</p>
           </h1>
-          <Color color={this.state.color} setColor={this.setColor} />
-          <ColorHistory colorEntries={this.state.colorEntries} />
+          <Color color={this.props.color} setColor={this.props.setColor} />
+          <ColorHistory colorEntries={this.props.colorEntries} />
         </div>
       </section>
     )
   }
+}
+
+DashboardColor.propTypes = {
+  color: PropTypes.string,
+  colorEntries: PropTypes.array,
+  setColor: PropTypes.func
 }
