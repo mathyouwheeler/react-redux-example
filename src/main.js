@@ -7,9 +7,10 @@ import {Router, browserHistory as history} from 'react-router'
 import attachFastClick from 'fastclick'
 import routes from './routes'
 // react-redux imports
-import { createStore } from 'redux'
+import { combineReducers, createStore } from 'redux'
 import { Provider } from 'react-redux'
-import { dashboards } from './reducers.js'
+import { colorDashboard } from './reducers/colorReducer.js'
+import { countDashboard } from './reducers/countReducer.js'
 
 // Remove 300ms tap delay on mobile devices
 attachFastClick.attach(document.body)
@@ -18,10 +19,11 @@ attachFastClick.attach(document.body)
 window.React = React
 
 // Set up redux store, and with redux dev tools extension support
+const reducer = combineReducers({ colorDashboard, countDashboard })
 const store = (
   window.devToolsExtension
   ? window.devToolsExtension()(createStore)
-  : createStore)(dashboards)
+  : createStore)(reducer)
 
 ReactDOM.render(
   <Provider store={store}>

@@ -29,8 +29,8 @@ DashboardColor.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  color: state.color,
-  colorEntries: state.colorEntries
+  color: state.colorDashboard.color,
+  colorEntries: state.colorDashboard.colorEntries
 })
 
 const mapDispatchToProps = (dispatch) => ({
