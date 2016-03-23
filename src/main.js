@@ -17,8 +17,11 @@ attachFastClick.attach(document.body)
 // Expose globally
 window.React = React
 
-// Set up redux store
-const store = createStore(dashboards)
+// Set up redux store, and with redux dev tools extension support
+const store = (
+  window.devToolsExtension
+  ? window.devToolsExtension()(createStore)
+  : createStore)(dashboards)
 
 ReactDOM.render(
   <Provider store={store}>
