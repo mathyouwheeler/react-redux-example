@@ -13,6 +13,7 @@ export default class Color extends Component {
   }
 
   setColor (newColor) {
+    this.props.setColor(newColor)
     this.setState({
       color: newColor.hex
     })

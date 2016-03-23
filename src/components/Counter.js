@@ -12,6 +12,7 @@ export default class Counter extends Component {
   }
 
   increment () {
+    this.props.increment()
     this.setState({
       counter: this.state.counter += 1
     })
