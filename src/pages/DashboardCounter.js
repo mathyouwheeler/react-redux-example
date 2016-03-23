@@ -29,7 +29,7 @@ export default class DashboardCounter extends Component {
           <h1>
             <p>Counter Dashboard</p>
           </h1>
-          <Counter increment={this.increment} />
+          <Counter counter={this.state.counter} increment={this.increment} />
           <CounterHistory countEntries={this.state.countEntries} />
         </div>
       </section>

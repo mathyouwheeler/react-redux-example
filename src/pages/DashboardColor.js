@@ -28,7 +28,7 @@ export default class DashboardColor extends Component {
           <h1>
             <p>Color Dashboard</p>
           </h1>
-          <Color setColor={this.setColor} />
+          <Color color={this.state.color} setColor={this.setColor} />
           <ColorHistory colorEntries={this.state.colorEntries} />
         </div>
       </section>
