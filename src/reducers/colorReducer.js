@@ -2,7 +2,7 @@ import moment from 'moment'
 
 // Initial Color Dashboard State
 const initialColorState = {
-  color: '#000',
+  color: '000',
   colorEntries: []
 }
 
